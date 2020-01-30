@@ -1,0 +1,63 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+
+  <!-- Everything here insede will be teleported on the main toolbar -->
+  <ng-template wmTeleport="toolbar">
+
+    <button mat-button [matMenuTriggerFor]="animals">
+      <mat-icon>folder_open</mat-icon>
+      <span>Choose</span>
+    </button>
+
+    <mat-menu #animals="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="vertebrates">Vertebrates</button>
+      <button mat-menu-item [matMenuTriggerFor]="invertebrates">Invertebrates</button>
+    </mat-menu>
+
+    <mat-menu #vertebrates="matMenu">
+      <button mat-menu-item [matMenuTriggerFor]="fish">Fishes</button>
+      <button mat-menu-item [matMenuTriggerFor]="amphibians">Amphibians</button>
+      <button mat-menu-item [matMenuTriggerFor]="reptiles">Reptiles</button>
+      <button mat-menu-item (click)="pick = 'Birds'">Birds</button>
+      <button mat-menu-item (click)="pick = 'Mammals'">Mammals</button>
+    </mat-menu>
+
+    <mat-menu #invertebrates="matMenu">
+      <button mat-menu-item (click)="pick = 'Insects'">Insects</button>
+      <button mat-menu-item (click)="pick = 'Molluscs'">Molluscs</button>
+      <button mat-menu-item (click)="pick = 'Crustaceans'">Crustaceans</button>
+      <button mat-menu-item (click)="pick = 'Corals'">Corals</button>
+      <button mat-menu-item (click)="pick = 'Arachnids'">Arachnids</button>
+      <button mat-menu-item (click)="pick = 'Velvet worms'">Velvet worms</button>
+      <button mat-menu-item (click)="pick = 'Hoseshoe crabs'">Horseshoe crabs</button>
+    </mat-menu>
+
+    <mat-menu #fish="matMenu">
+      <button mat-menu-item (click)="pick = 'Baikal oilfish'">Baikal oilfish</button>
+      <button mat-menu-item (click)="pick = 'Bala shark'">Bala shark</button>
+      <button mat-menu-item (click)="pick = 'Ballan wrasse'">Ballan wrasse</button>
+      <button mat-menu-item (click)="pick = 'Bamboo shark'">Bamboo shark</button>
+      <button mat-menu-item (click)="pick = 'Banded killifish'">Banded killifish</button>
+    </mat-menu>
+
+    <mat-menu #amphibians="matMenu">
+      <button mat-menu-item (click)="pick = 'Sonoran desert toad'">Sonoran desert toad</button>
+      <button mat-menu-item (click)="pick = 'Western toad'">Western toad</button>
+      <button mat-menu-item (click)="pick = 'Arroyo toad'">Arroyo toad</button>
+      <button mat-menu-item (click)="pick = 'Yosemite toad'">Yosemite toad</button>
+    </mat-menu>
+
+    <mat-menu #reptiles="matMenu">
+      <button mat-menu-item (click)="pick = 'Banded Day Gecko'">Banded Day Gecko</button>
+      <button mat-menu-item (click)="pick = 'Banded Gila Monster'">Banded Gila Monster</button>
+      <button mat-menu-item (click)="pick = 'Black Tree Monitor'">Black Tree Monitor</button>
+      <button mat-menu-item (click)="pick = 'Blue Spiny Lizard'">Blue Spiny Lizard</button>
+      <button mat-menu-item disabled>Velociraptor</button>
+    </mat-menu>
+
+  </ng-template>
+
+  <h1>Page 2 - Menu</h1>
+
+  <p *ngIf="pick">You picked: {{ pick }}</p>
+
+</section>

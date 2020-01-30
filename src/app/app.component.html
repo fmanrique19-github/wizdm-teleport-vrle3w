@@ -1,0 +1,66 @@
+<!-- TOP TOOLBAR -->
+<mat-toolbar fxFlex="0 0 auto" fxLayout="row" fxLayoutAlign="space-between center">
+
+  <!-- LEFT SIDE -->
+  <div fxLayout="row" fxLayoutAlign="start center">
+
+    <!-- NAV LINKS -->
+    <a mat-button *ngFor="let item of menuItems" routerLinkActive="link-active" [routerLink]="item.link">
+      {{ item.label }}
+    </a>
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div fxLayout="row" fxLayoutAlign="end center">  
+
+    <!-- TELEPORTED TOOLBAR -->
+    <wm-portal name="toolbar" [context]="{ title: 'TELEPORT' }"></wm-portal>
+
+    <!-- MOBILE TOGGLER -->
+    <a mat-icon-button (click)="snav.toggle()">
+      <mat-icon>menu</mat-icon>
+    </a>
+
+  </div>
+
+</mat-toolbar>
+<mat-divider></mat-divider>
+
+<!-- MAIN PAGE CONTENT -->
+<mat-sidenav-container fxFlex="1 1 auto" fxLayout="column">
+
+  <!-- MOBILE SIDE MENU -->
+  <mat-sidenav mode="over" position="end" #snav>
+
+    <!-- NAV LINKS LIST -->
+    <mat-nav-list fxLayout="column" fxLayoutAlign="center center">
+       <a mat-button *ngFor="let item of menuItems" routerLinkActive="link-active" [routerLink]="item.link" (click)="snav.close()">
+        Go to {{ item.label }}
+      </a>
+    </mat-nav-list>
+  
+  </mat-sidenav>  
+    
+  <!-- SCROLLABLE CONTENT -->
+  <mat-sidenav-content fxFlex="1 1 auto" fxLayout="column">
+    
+    <!-- ROUTED CONTENT -->
+    <div fxFlex="1 1 auto">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <mat-divider></mat-divider>
+
+    <!-- COMMON FOOTER -->
+    <footer fxFlex="0 0 auto"  fxLayout="row" fxLayoutAlign="center center">
+      
+      <!-- SOCIAL LINKS -->
+      <a mat-icon-button *ngFor="let item of footerItems" [href]="item.link" target="_blank">
+        <mat-icon [fontSet]="item.icon.split(':')[0]" [fontIcon]="item.icon.split(':')[1]">
+        </mat-icon>
+      </a>    
+    </footer>
+  
+  </mat-sidenav-content>
+
+</mat-sidenav-container>

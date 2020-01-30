@@ -1,0 +1,12 @@
+
+section {
+  margin: 32px;
+}
+
+p {
+  text-align: justify;
+}
+
+div {
+  min-height: 100vh;
+}

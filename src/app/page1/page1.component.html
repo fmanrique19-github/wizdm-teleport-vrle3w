@@ -1,0 +1,29 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+
+  <!-- Everything here insede will be teleported on the main toolbar -->
+  <ng-template wmTeleport="toolbar">
+
+    <!-- Increment button -->
+    <button mat-icon-button color="primary" (click)="count = count + 1">
+      <mat-icon>add_circle</mat-icon>
+    </button>
+
+    <!-- Decrement button -->
+    <button mat-icon-button color="primary" (click)="count = count - 1">
+      <mat-icon>remove_circle</mat-icon>
+    </button>
+
+    <!-- Reset button -->
+    <button mat-icon-button color="primary" [disabled]="count === 0"(click)="count = 0">
+      <mat-icon>check_circle</mat-icon>
+    </button>
+
+  </ng-template>
+
+  <h1>Page 1 -  The Counter</h1>
+
+  <p>Here the counter you can modify from the toolbar</p>
+
+  <h1>{{ count }}</h1>
+
+</section>

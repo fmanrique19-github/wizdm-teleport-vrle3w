@@ -1,0 +1,20 @@
+<section fxLayout="column" fxLayoutAlign="center center">
+
+  <!-- Everything here insede will be teleported on the main toolbar -->
+  <ng-template let-title="title" wmTeleport="toolbar">
+
+    <!-- Help button -->
+    <button mat-button (click)="help = !help">
+      <span>{{ title }}</span>
+      <mat-icon>{{ help ? 'cancel' : 'help' }}</mat-icon>
+    </button>
+
+  </ng-template>
+
+  <h1>Home</h1>
+
+  <p>This demo shows how to teleport content in Angular</p>
+
+  <p *ngIf="help">Navigate across the pages to see how the toolbar adapts</p>
+
+</section>
